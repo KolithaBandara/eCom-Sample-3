@@ -23,6 +23,6 @@ public class CategoryController {
     public String addCategory(@RequestBody Category category){
         category.setId(++id);
         categories.add(category);
-        return "Category added successfully!";
+        return "Category '"+ category.getName() +"', added successfully!";
     }
 }
