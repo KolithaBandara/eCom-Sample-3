@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 public class CategoryController {
-    private List<Category> categories = new ArrayList<>();
+
     private Long id =0L;
 
     @GetMapping("api/public/categories")
