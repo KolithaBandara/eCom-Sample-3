@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 public class CategoryController {
-    List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<>();
+    
 
     @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
