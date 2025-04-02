@@ -9,7 +9,7 @@ import java.util.List;
 public class CategoryController {
     List<Category> categories = new ArrayList<>();
 
-    @GetMapping()
+    @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
         return categories;
     }
