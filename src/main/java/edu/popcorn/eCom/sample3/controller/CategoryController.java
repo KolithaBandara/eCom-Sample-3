@@ -1,10 +1,7 @@
 package edu.popcorn.eCom.sample3.controller;
 
 import edu.popcorn.eCom.sample3.model.Category;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,5 +21,10 @@ public class CategoryController {
         category.setId(++id);
         categories.add(category);
         return "Category '"+ category.getName() +"', added successfully!";
+    }
+
+    @DeleteMapping("api/admin/categories/{categoryId}")
+    public String removeCategory(@PathVariable Long categoryId){
+        return "Category Removed Successfully!";
     }
 }
