@@ -2,17 +2,23 @@ package edu.popcorn.eCom.sample3.service;
 
 import edu.popcorn.eCom.sample3.model.Category;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryServiceImpl implements CategoryService{
+    private List<Category> categories = new ArrayList<>();
+
     @Override
     public List<Category> getAllCategories() {
-        return List.of();
+        return categories;
     }
 
     @Override
     public String addCategory(Category category) {
-        return "";
+        categories.add(category);
+        return
+                "Category: '"+category.getId()+
+                        ":"+category.getName()+"', added successfully!";
     }
 
     @Override
