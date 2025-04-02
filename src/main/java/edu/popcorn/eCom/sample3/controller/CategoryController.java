@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class CategoryController {
     private List<Category> categories = new ArrayList<>();
-    
+    private Long id =0L;
 
     @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
@@ -21,6 +21,7 @@ public class CategoryController {
 
     @PostMapping("api/admin/category")
     public String addCategory(@RequestBody Category category){
+        category.setId(++id);
         categories.add(category);
         return "Category added successfully!";
     }
