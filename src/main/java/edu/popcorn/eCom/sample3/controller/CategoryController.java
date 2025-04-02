@@ -15,4 +15,8 @@ public class CategoryController {
     public List<Category> getAllCategories(){
         return categories;
     }
+    
+    public String addCategory(){
+        return "Category added successfully!";
+    }
 }
