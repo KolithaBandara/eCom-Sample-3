@@ -1,30 +1,30 @@
 package edu.popcorn.eCom.sample3.controller;
 
 import edu.popcorn.eCom.sample3.model.Category;
+import edu.popcorn.eCom.sample3.service.CategoryService;
+import edu.popcorn.eCom.sample3.service.CategoryServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class CategoryController {
-    private List<Category> categories = new ArrayList<>();
+    CategoryService categoryService = new CategoryServiceImpl();
     private Long id =0L;
 
     @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
-        return categories;
+        return categoryService.getAllCategories();
     }
 
     @PostMapping("api/admin/category")
     public String addCategory(@RequestBody Category category){
         category.setId(++id);
-        categories.add(category);
-        return "Category '"+ category.getName() +"', added successfully!";
+        return categoryService.addCategory(category);
     }
 
     @DeleteMapping("api/admin/categories/{categoryId}")
     public String removeCategory(@PathVariable Long categoryId){
-        return "Category Removed Successfully!";
+        return categoryService.removeCategory(categoryId);
     }
 }
