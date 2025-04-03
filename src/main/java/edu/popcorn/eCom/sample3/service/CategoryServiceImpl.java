@@ -1,6 +1,8 @@
 package edu.popcorn.eCom.sample3.service;
 
 import edu.popcorn.eCom.sample3.model.Category;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService{
                 .stream()
                 .filter(category -> category.getId().equals(categoryId))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         if(status==null) return "Category not found";
         categories.remove(status);
         return categoryId+":"+status.getName()+", category deleted successfully!";
