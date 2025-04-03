@@ -16,8 +16,9 @@ public class CategoryController {
     private Long id = 0L;
 
     @GetMapping("api/public/categories")
-    public List<Category> getAllCategories(){
-        return categoryService.getAllCategories();
+    public ResponseEntity<List<Category>> getAllCategories(){
+        List<Category> categories = categoryService.getAllCategories();
+        return ResponseEntity.status(HttpStatus.OK).body(categories);
     }
 
     @PostMapping("api/admin/category")
