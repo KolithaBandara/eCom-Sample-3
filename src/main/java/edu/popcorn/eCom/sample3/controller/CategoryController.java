@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class CategoryController {
     CategoryService categoryService = new CategoryServiceImpl();
-    private Long id =0L;
+    private Long id = 0L;
 
     @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
@@ -29,8 +29,8 @@ public class CategoryController {
     @DeleteMapping("api/admin/categories/{categoryId}")
     public ResponseEntity<String> removeCategory(@PathVariable Long categoryId){
         try{
-            return new ResponseEntity<>(categoryService.removeCategory(categoryId),
-                    HttpStatus.OK);
+            String status = categoryService.removeCategory(categoryId);
+            return new ResponseEntity<>(status, HttpStatus.OK);
         }catch (ResponseStatusException e){
             return new ResponseEntity<>(e.getReason(), e.getStatusCode());
         }
