@@ -30,7 +30,8 @@ public class CategoryController {
     public ResponseEntity<String> removeCategory(@PathVariable Long categoryId){
         try{
             String status = categoryService.removeCategory(categoryId);
-            return new ResponseEntity<>(status, HttpStatus.OK);
+            //return new ResponseEntity<>(status, HttpStatus.OK);
+            return ResponseEntity.status(HttpStatus.OK).body(status);
         }catch (ResponseStatusException e){
             return new ResponseEntity<>(e.getReason(), e.getStatusCode());
         }
