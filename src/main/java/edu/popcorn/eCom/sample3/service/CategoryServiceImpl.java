@@ -26,7 +26,9 @@ public class CategoryServiceImpl implements CategoryService{
         Category status = categories
                 .stream()
                 .filter(category -> category.getId().equals(categoryId))
-                .findFirst().get();
+                .findFirst()
+                .orElse(null);
+        if(status==null) return "Category not found";
         categories.remove(status);
         return categoryId+":"+status.getName()+", category deleted successfully!";
     }
