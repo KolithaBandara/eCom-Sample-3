@@ -21,9 +21,10 @@ public class CategoryController {
     }
 
     @PostMapping("api/admin/category")
-    public String addCategory(@RequestBody Category category){
+    public ResponseEntity<String> addCategory(@RequestBody Category category){
         category.setId(++id);
-        return categoryService.addCategory(category);
+        categoryService.addCategory(category);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Category Created! ❤️");
     }
 
     @DeleteMapping("api/admin/categories/{categoryId}")
