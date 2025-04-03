@@ -38,4 +38,9 @@ public class CategoryController {
             return new ResponseEntity<>(e.getReason(), e.getStatusCode());
         }
     }
+
+    @PutMapping("api/admin/category/update/{categoryId}")
+    public String updateCategory(){
+        return "Category updated!";
+    }
 }
