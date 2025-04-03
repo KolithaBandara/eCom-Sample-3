@@ -40,7 +40,7 @@ public class CategoryController {
     }
 
     @PutMapping("api/admin/category/update/{categoryId}")
-    public String updateCategory(){
-        return "Category updated!";
+    public ResponseEntity<String> updateCategory(){
+        return ResponseEntity.status(HttpStatus.OK).body("Category Updated! ✨");
     }
 }
