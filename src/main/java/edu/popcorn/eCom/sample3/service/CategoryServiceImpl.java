@@ -16,11 +16,16 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public String addCategory(Category category) {
+    public ResponseStatusException addCategory(Category category) {
+        if (category.getName().isEmpty())
+            return new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Check again, Syntax error!");
         categories.add(category);
-        return
-                "Category: '"+category.getId()+
-                        ":"+category.getName()+"', added successfully!";
+        return new ResponseStatusException(
+                        HttpStatus.OK,
+                        "Category created!"
+        );
     }
 
     @Override
