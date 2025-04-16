@@ -14,6 +14,7 @@ import java.util.List;
 public class CategoryController {
     CategoryService categoryService = new CategoryServiceImpl();
     private Long id = 0L;
+    
 
     @GetMapping("api/public/categories")
     public List<Category> getAllCategories(){
