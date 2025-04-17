@@ -11,4 +11,5 @@ public interface CategoryService {
     List<Category> getAllCategories();
     ResponseStatusException addCategory(@RequestBody Category category);
     String removeCategory(@PathVariable Long categoryId);
+    
 }
